@@ -1,0 +1,29 @@
+<script>
+    const tryFn = (cb) => {
+        try {
+            cb()
+        }
+        catch (e) {
+            console.error(e)
+        }
+    }
+
+    // call stage
+    tryFn(() => console.log("a", a))
+    tryFn(() => console.log("b", b))
+    tryFn(() => console.log("d", d))
+    tryFn(() => console.log("e", e))
+    tryFn(fn)
+    tryFn(arrowFn)
+
+    // declare stage
+    var a
+    let b
+    const d = 2
+    const arrowFn = () => {
+        console.log('call arrowFn')
+    }
+    function fn() {
+        console.log('call fn')
+    }
+</script>

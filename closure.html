@@ -1,0 +1,36 @@
+<script>
+    // replace array
+    let arrUnSort = [1,4,26,9,2]
+    let arrSort = [];
+
+    function arraySorted(arrUnSort, arrSort) {
+        arrSort = arrUnSort.sort();
+    }
+
+    arraySorted(arrUnSort, arrSort);
+    console.log(arrSort); // []
+
+    // replace number
+    function changeN(n) {
+        n = 2
+    }
+
+    let n = 0
+    changeN(n)
+
+    console.log(n)
+
+    // replace object
+    function changeObj(o) {
+        // так объект из аргумента не изменится!
+        // o = 3
+        // o.v = 4
+        o.v = 4
+        o = 3
+    }
+
+    let o = {}
+    changeObj(o)
+
+    console.log(o)
+</script>

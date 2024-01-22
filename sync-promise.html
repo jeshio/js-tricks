@@ -1,0 +1,15 @@
+<script>
+    console.log("start")
+    
+    const instantP = new Promise((resolve) => {
+        console.log('instantP')
+
+        resolve("test")
+    })
+
+    console.log("instantP is", instantP)
+
+    instantP.then((response) => console.log("instantP response"))
+
+    console.log("finish")
+</script>

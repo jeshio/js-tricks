@@ -1,0 +1,36 @@
+<script>
+    async function getCookiesCount() {
+        let cookies = 0;
+        let hasCookie = true;
+
+        setTimeout(() => {
+            hasCookie = false
+        }, 2000)
+        // fetch()
+
+        while (hasCookie) {
+            cookies += 1;
+            console.log(cookies)
+            // yield to the event loop
+            await new Promise(resolve => setTimeout(resolve, 0));
+        }
+
+        // const run = () => {
+        //     setTimeout(() => {
+        //         if (hasCookie) {
+        //             cookies += 1;
+        //             run()
+        //         }
+        //         else {
+        //             console.log(getCookiesCount())
+        //         }
+        //     })
+        // }
+        // run()
+        
+
+        return cookies;
+    }
+
+    console.log(getCookiesCount())
+</script>

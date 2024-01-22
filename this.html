@@ -1,0 +1,25 @@
+<script>
+    console.log("global", this)
+
+    function test() {
+        console.trace("test", this)
+    }
+
+    test()
+
+    const arrowTest = () => {
+        console.trace("arrowTest", this)
+    }
+
+    arrowTest()
+
+    const obj = {
+        someValue: 10,
+        test, // gives object context
+        arrowTest,
+    }
+
+    obj.test()
+
+    obj.arrowTest()
+</script>

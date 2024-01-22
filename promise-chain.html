@@ -1,0 +1,42 @@
+<script>
+    console.log("start")
+
+    const f1 = new Promise((resolve, reject) => resolve(1))
+    const f2 = async () => 2
+    const f3 = new Promise((resolve, reject) => reject(3))
+    
+    /*
+    // without async / await, allSettled and all
+    const getPromisesResult = (promises) => {
+        return new Promise((resolve) => {
+            const result = []
+            let finishedPromises = 0
+
+            const handleResponse = r => {
+                result.push(r)
+                finishedPromises += 1
+
+                if (finishedPromises === promises.length) {
+                    resolve(result)
+                }
+            }
+
+            promises.forEach(p => p.then(handleResponse).catch(handleResponse))
+        })
+    }
+    */
+    const getPromisesResult = async (promises) => {
+        return Promise.allSettled(
+            promises.map(p => p.catch(e => e))
+        )
+    }
+
+    const result = getPromisesResult([f1, f2(), f3])
+
+    console.log("result", result)
+
+    // it will gives [1, 2, 3]
+    result.then(response => console.log("response", response))
+
+    console.log("finish")
+</script>

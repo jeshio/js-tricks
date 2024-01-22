@@ -1,0 +1,12 @@
+<h1 id="elem">Привет для Васи!</h1>
+
+<script>
+  elem.addEventListener("hello", function(event) {
+    console.log(event.detail.name);
+  });
+
+  elem.dispatchEvent(new CustomEvent("hello", {
+    // detail - is spectial field for event extra info
+    detail: { name: "Вася" }
+  }));
+</script>
